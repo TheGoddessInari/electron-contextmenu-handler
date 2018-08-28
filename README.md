@@ -1,6 +1,7 @@
 # electron-contextmenu-wrapper
 
 ![](https://img.shields.io/npm/dm/electron-contextmenu-wrapper.svg)
+[![](https://img.shields.io/david/TheGoddessInari/electron-contextmenu-wrapper.svg)](https://david-dm.org/TheGoddessInari/electron-contextmenu-wrapper)
 
 electron-contextmenu-wrapper was forked from electron-spellchecker to provide
 a robust context handling library that's also callable from inside of a webview preloader.
