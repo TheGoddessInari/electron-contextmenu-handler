@@ -102,7 +102,7 @@ class ContextMenuBuilder {
     let menu = await this.buildMenuForElement(contextInfo);
     if (!menu) return;
     this.menu = menu;
-    this.menu.popup(remote.getCurrentWindow(), { async: true });
+    this.menu.popup({window: remote.getCurrentWindow()});
   }
 
   /**
