@@ -50,17 +50,17 @@ class ContextMenuBuilder {
     this.menu = null;
     this.stringTable = Object.assign({}, contextMenuStringTable);
 
-    windowOrWebView = windowOrWebView || remote.getCurrentWebContents();
+    this.windowOrWebView = windowOrWebView || remote.getCurrentWindow();
 
-    let ctorName = Object.getPrototypeOf(windowOrWebView).constructor.name;
+    let ctorName = Object.getPrototypeOf(this.windowOrWebView).constructor.name;
     if (ctorName === 'WebContents') {
-      this.getWebContents = () => windowOrWebView;
+      this.getWebContents = () => this.windowOrWebView;
     } else {
       // NB: We do this because at the time a WebView is created, it doesn't
       // have a WebContents, we need to defer the call to getWebContents
-      this.getWebContents = 'webContents' in windowOrWebView ?
-        () => windowOrWebView.webContents :
-        () => windowOrWebView.getWebContents();
+      this.getWebContents = 'webContents' in this.windowOrWebView ?
+        () => this.windowOrWebView.webContents :
+        () => this.windowOrWebView.getWebContents();
     }
   }
 
@@ -102,7 +102,7 @@ class ContextMenuBuilder {
     let menu = await this.buildMenuForElement(contextInfo);
     if (!menu) return;
     this.menu = menu;
-    this.menu.popup({window: remote.getCurrentWindow()});
+    this.menu.popup({window: this.windowOrWebView});
   }
 
   /**
