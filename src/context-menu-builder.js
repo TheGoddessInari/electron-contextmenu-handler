@@ -1,7 +1,7 @@
-const {clipboard, nativeImage, remote, shell} = require('electron');
+const {remote} = require('electron');
 const {truncateString, matchesWord} = require('./utility');
 
-const {Menu, MenuItem} = remote ? remote : require('electron');
+const {clipboard, Menu, MenuItem, nativeImage, shell} = remote ? remote : require('electron');
 
 let d = require('debug')('electron-contextmenu-wrapper:context-menu-builder');
 

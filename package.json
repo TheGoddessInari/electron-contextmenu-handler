@@ -1,6 +1,6 @@
 {
   "name": "electron-contextmenu-wrapper",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Sane context menu handler",
   "scripts": {
     "doc": "esdoc -c ./esdoc.json",
