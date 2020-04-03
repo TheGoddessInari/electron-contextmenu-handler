@@ -103,6 +103,8 @@ class ContextMenuBuilder {
     if (!menu) return;
     this.menu = menu;
     this.menu.popup({window: this.windowOrWebView});
+    contextMenuPrepends.length = 0;
+    contextMenuAppends.length = 0;
   }
 
   /**
